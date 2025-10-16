@@ -1,9 +1,6 @@
-def call(String image){
-    stages {
-        stage('docker_push') { 
-            steps {
-                sh 'docker push ${image}'
-            }
-        }
-    }
+def call(String image) {
+    echo "Pushing Docker image: ${image}"
+    sh """
+      docker push ${image}
+    """
 }
