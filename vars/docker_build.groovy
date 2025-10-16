@@ -1,9 +1,6 @@
 def call(String tag){
-    stages {
-        stage('docker_build') { 
-            steps {
-                sh 'docker build -t ${tag} .'
-            }
-        }
-    }
+   echo "Building Docker image: ${tag}"
+    sh """
+      docker build -t ${tag} .
+    """
 }
