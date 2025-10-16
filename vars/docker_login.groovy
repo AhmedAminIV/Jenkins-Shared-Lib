@@ -1,9 +1,6 @@
 def call(String user, String token){
-    stages {
-        stage('docker_login') { 
-            steps {
-                sh 'docker login -u ${user} -p ${token}'
-            }
-        }
-    }
+    echo "Logging in to Docker Hub..."
+    sh """
+       docker login -u ${user} -p ${token}
+    """
 }
